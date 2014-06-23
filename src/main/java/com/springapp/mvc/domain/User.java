@@ -39,9 +39,6 @@ public class User {
             inverseJoinColumns = @JoinColumn(name = "friend_id"))
     private List<User> users = new ArrayList<User>();
 
-    @ManyToMany(mappedBy = "users")
-    private List<User> friends = new ArrayList<User>();
-
     @OneToMany(mappedBy="user")
     private List<Status> statusList = new ArrayList<Status>();
 
@@ -105,14 +102,6 @@ public class User {
         this.users = users;
     }
 
-    public List<User> getFriends() {
-        return friends;
-    }
-
-    public void setFriends(List<User> friends) {
-        this.friends = friends;
-    }
-
     public List<Status> getStatusList() {
         return statusList;
     }
@@ -127,5 +116,17 @@ public class User {
 
     public void setCommentList(List<Comment> commentList) {
         this.commentList = commentList;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", password='" + password + '\'' +
+                ", email='" + email + '\'' +
+                ", dob='" + dob + '\'' +
+                '}';
     }
 }

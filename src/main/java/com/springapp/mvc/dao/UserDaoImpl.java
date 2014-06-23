@@ -34,7 +34,7 @@ public class UserDaoImpl implements UserDao {
     @Override
     public List<User> getFriendList(int id) {
 
-        String queryString = "SELECT f " + "FROM User u JOIN u.friends f " + "WHERE u.id=:id";
+        String queryString = "SELECT f " + "FROM User u JOIN u.users f " + "WHERE u.id=:id";
         Query query = entityManager.createQuery(queryString) .setParameter("id", id);
 
         return query.getResultList();

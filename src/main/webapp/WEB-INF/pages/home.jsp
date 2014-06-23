@@ -22,7 +22,7 @@
     <table align="right">
         <tr>
                     <td>You are Logged In as User :</td>
-                    <td><b>${verifiedUser.firstName}</b></td>
+                    <td>${verifiedUser.firstName}</td>
         </tr>
         <tr>
             <td>

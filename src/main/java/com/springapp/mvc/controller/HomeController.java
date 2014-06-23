@@ -23,13 +23,15 @@ public class HomeController {
     UserService userService;
 
     @RequestMapping(method = RequestMethod.GET)
-    public String showHomePage(ModelMap model,  HttpServletRequest request) {
-      HttpSession httpSession = request.getSession();
-      User user = (User)httpSession.getAttribute("verifiedUser");
-      List<User> friendList = userService.getFriendList(user.getId());
+    public String showHomePage(ModelMap model, HttpServletRequest request) {
+        HttpSession httpSession = request.getSession();
+        User user = (User) httpSession.getAttribute("verifiedUser");
+        System.out.println("====================" + " "+ user+"==========================");
+        List<User> friendList = userService.getFriendList(user.getId());
         for (User user1 : friendList) {
-            System.out.println(user1.getFirstName());
+
+            System.out.println("################## " + user1.toString() + "############");
         }
-      return "home";
+        return "home";
     }
 }
