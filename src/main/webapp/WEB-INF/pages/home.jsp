@@ -9,80 +9,51 @@
 <head>
 
     <title>Food Management System</title>
-    <link rel="stylesheet" type="text/css" href="<c:url value="/resources/style.css"/>">
+    <link rel="stylesheet" type="text/css" href='<c:url value="/resources/css/bootstrap.min.css" />'/>
+    <link rel="stylesheet" type="text/css" href='<c:url value="/resources/css/bootstrap.css" />'/>
 
 </head>
 
 <body>
 
-<div id="table">
+    <div align="center">
+    <h2>welcome</h2>
 
-    <h1 style="text-align:center;">Welcome</h1>
+          <p> User Profile: </br>
+              firstname: ${verifiedUser.firstName} </br>
+              lastname: ${verifiedUser.lastName} </br>
+              dob:      ${verifiedUser.dob} </br>
+              email:    ${verifiedUser.email} </br>
+          </p>
 
-    <table align="right">
-        <tr>
-                    <td>You are Logged In as User :</td>
-                    <td>${verifiedUser.firstName}</td>
-        </tr>
-        <tr>
-            <td>
-                <a href="/logout">Logout</a>
-            </td>
-        </tr>
-    </table>
-    </br></br>
 
-    <%--<h1 style="text-align:center;">Meal List of This Week</h1>
+    <%--friendlist--%>
 
-    <table border="1" align="center" class="table1">
-        <tr>
-            <td>Day</td>
-            <td>Breakfast</td>
-            <td>Lunch</td>
-        </tr>
-        <c:forEach var="meal" items="${mealList}">
-            <tr>
-                <td>
-                    <c:out value="${meal.getDayName()}"/>
-                </td>
-                <td>
-                    <p align="left"><c:out value="${meal.getBreakfastItem()}"/></p>
-                    <c:if test="${verifiedUser.getUserType() == 1}">
-                        <c:url value="edit_menu.html" var="displayURL">
-                            <c:param name="dayId" value="${meal.getDayId()}"/>
-                            <c:param name="mealType" value="breakfast"/>
-                        </c:url>
-                        <p align="right"><a href='<c:out value="${displayURL}" />'>
-                            Edit
-                        </a></p>
-                    </c:if>
-                </td>
+         <p>
+             Friend List: </br>
+             <c:forEach var="friend" items="${friendList}">
+                 <c:out value="${friend.firstName} ${friend.lastName}"/> </br>
+             </c:forEach>
+         </p>
 
-                <td>
-                    <p align="left"><c:out value="${meal.getLunchItem()}"/></p>
-                    <c:if test="${verifiedUser.getUserType() == 1}">
-                        <c:url value="edit_menu.html" var="displayURL">
-                            <c:param name="dayId" value="${meal.getDayId()}"/>
-                            <c:param name="mealType" value="lunch"/>
-                        </c:url>
-                        <p align="right"><a href='<c:out value="${displayURL}" />'>
-                            Edit
-                        </a></p>
-                    </c:if>
-                </td>
-            </tr>
+    <%--status--%>
 
+    <p>
+        Status: </br>
+        <c:forEach var="status" items="${statuses}">
+            <c:out value="${status.status}"/> </br>
         </c:forEach>
-    </table>--%>
+    </p> </br>
 
-    <%--<c:if test="${verifiedUser.getUserType() == 0 }">
-        <p align="right"><a href="current_day.html">
-            view Today's List
-        </a></p>
-    </c:if>
---%>
-</div>
 
+    <form action="status" method="post">
+        <input type="text" name="status">
+        <input type="submit" value="post">
+    </form>
+
+
+    <p><a href="/logout">Logout</a></p>
+   </div>
 </body>
 
 </html>

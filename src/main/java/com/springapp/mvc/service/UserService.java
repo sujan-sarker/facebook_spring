@@ -1,12 +1,12 @@
 package com.springapp.mvc.service;
 
 import com.springapp.mvc.dao.UserDao;
+import com.springapp.mvc.domain.Status;
 import com.springapp.mvc.domain.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -37,5 +37,14 @@ public class UserService {
     public List<User> getFriendList(int id) {
 
         return userDao.getFriendList(id);
+    }
+
+    public List<Status> getAllStatus(int id) {
+        return userDao.getAllStatus(id);
+    }
+
+
+    public void addSatus(Status status1) {
+        userDao.addStatus(status1);
     }
 }

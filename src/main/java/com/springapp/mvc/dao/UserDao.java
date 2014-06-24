@@ -1,5 +1,6 @@
 package com.springapp.mvc.dao;
 
+import com.springapp.mvc.domain.Status;
 import com.springapp.mvc.domain.User;
 
 import java.util.List;
@@ -13,6 +14,7 @@ public interface UserDao {
 
      public List<User> getFriendList(int id);
 
-    /* public List<Status> getAllStatus(int id);*/
+    List<Status> getAllStatus(int id);
 
+    public void addStatus(Status status1);
 }

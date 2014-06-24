@@ -1,6 +1,10 @@
 package com.springapp.mvc.domain;
 
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotEmpty;
+
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,10 +27,12 @@ public class User {
 
     @Column(name="last_name", nullable=false)
     private String lastName;
-
+    @NotNull @NotEmpty
     @Column(name="password", nullable=false)
     private String password;
 
+
+    @NotNull @NotEmpty @Email
     @Column(name="email")
     private String email;
 
@@ -40,11 +46,18 @@ public class User {
     private List<User> users = new ArrayList<User>();
 
     @OneToMany(mappedBy="user")
-    private List<Status> statusList = new ArrayList<Status>();
+    private List<Status> statuses = new ArrayList<Status>();
 
     @OneToMany(mappedBy="user")
     private List<Comment> commentList = new ArrayList<Comment>();
 
+    public List<Status> getStatuses() {
+        return statuses;
+    }
+
+    public void setStatuses(List<Status> statuses) {
+        this.statuses = statuses;
+    }
 
     public int getId() {
         return id;
@@ -103,11 +116,11 @@ public class User {
     }
 
     public List<Status> getStatusList() {
-        return statusList;
+        return statuses;
     }
 
     public void setStatusList(List<Status> statusList) {
-        this.statusList = statusList;
+        this.statuses = statusList;
     }
 
     public List<Comment> getCommentList() {

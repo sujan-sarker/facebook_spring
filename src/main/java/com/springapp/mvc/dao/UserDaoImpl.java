@@ -1,5 +1,6 @@
 package com.springapp.mvc.dao;
 
+import com.springapp.mvc.domain.Status;
 import com.springapp.mvc.domain.User;
 import org.springframework.stereotype.Repository;
 
@@ -7,7 +8,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import java.util.List;
-import java.util.Set;
 
 /**
  * Created by sujan.sarkar on 6/23/14.
@@ -41,5 +41,18 @@ public class UserDaoImpl implements UserDao {
 
     }
 
+    @Override
+    public List<Status> getAllStatus(int id) {
+
+        String queryString = "SELECT s " + "FROM User u JOIN u.statuses s " + "WHERE u.id=:id";
+        Query query = entityManager.createQuery(queryString) .setParameter("id", id);
+
+        return query.getResultList();
+
+    }
+    public void addStatus(Status status1) {
+        entityManager.persist(status1);
+        entityManager.flush();
+    }
 
 }
