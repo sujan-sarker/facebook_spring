@@ -5,6 +5,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,10 +24,13 @@ public class User {
     private int id;
 
     @Column(name="first_name", nullable=false)
+    @Size(min=2, max=15)
     private String firstName;
 
     @Column(name="last_name", nullable=false)
+    @Size(min=2, max=15)
     private String lastName;
+
     @NotNull @NotEmpty
     @Column(name="password", nullable=false)
     private String password;
@@ -36,6 +40,7 @@ public class User {
     @Column(name="email")
     private String email;
 
+    @NotNull @NotEmpty
     @Column(name="dob")
     private String dob;
 

@@ -741,6 +741,16 @@ pre code {
   margin-top: 100px;
 
 }
+
+.container1 {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 100px;
+
+}
+
 @media (min-width: 768px) {
   .container {
     width: 750px;
@@ -756,11 +766,24 @@ pre code {
     width: 600px;
   }
 }
+
+@media (min-width: 1200px) {
+    .container1 {
+        width: 1000px;
+    }
+}
 .container-fluid {
   padding-right: 15px;
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
+}
+
+.container1-fluid {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
 }
 .row {
   margin-right: -15px;

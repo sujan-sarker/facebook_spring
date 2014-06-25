@@ -47,4 +47,8 @@ public class UserService {
     public void addSatus(Status status1) {
         userDao.addStatus(status1);
     }
+
+    public void addUser(User user1) {
+        userDao.addUser(user1);
+    }
 }

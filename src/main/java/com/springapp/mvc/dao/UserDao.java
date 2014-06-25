@@ -17,4 +17,6 @@ public interface UserDao {
     List<Status> getAllStatus(int id);
 
     public void addStatus(Status status1);
+
+    void addUser(User user1);
 }

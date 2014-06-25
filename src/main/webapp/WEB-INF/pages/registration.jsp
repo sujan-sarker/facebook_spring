@@ -56,45 +56,68 @@
 
 </div>--%>
 <%-- bootwatch_theme_start--%>
-<div class="container">
+<div class="container1">
     <div class="jumbotron">
 
-        <form:form class="form-horizontal" action="login" modelAttribute="user" method="post">
+        <form:form class="form-horizontal" action="registration" modelAttribute="user"  method="post">
             <fieldset>
-                <legend>Login</legend>
+                <legend>Registration</legend>
+                <div class="form-group">
+                    <label for="firstName" class="col-lg-2 control-label">First Name</label>
+                    <div class="col-lg-10">
+                        <form:input path="firstName"  id="firstName" class="form-control"  placeholder="First Name" type="text"  />
+                        <form:errors class="err_msg" path="firstName" ></form:errors>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="lastName" class="col-lg-2 control-label">Last Name</label>
+                    <div class="col-lg-10">
+                        <form:input path="lastName"  id="lastName" class="form-control"  placeholder="Last Name" type="text"  />
+                        <form:errors class="err_msg" path="lastName" ></form:errors>
+                    </div>
+                </div>
+
+
+
                 <div class="form-group">
                     <label for="email" class="col-lg-2 control-label">Email</label>
                     <div class="col-lg-10">
-                        <form:input path="email" id="email" class="form-control"  placeholder="Email" type="text"  />
-
+                        <form:input path="email"  id="email" class="form-control"  placeholder="Email" type="text"  />
+                        <form:errors class="err_msg" path="email" ></form:errors>
                     </div>
                 </div>
+
+
                 <div class="form-group">
-                    <label for="inputPassword" class="col-lg-2 control-label">Password</label>
+                    <label for="dob" class="col-lg-2 control-label">Date of Birth</label>
                     <div class="col-lg-10">
-                        <form:input path="password" class="form-control" id="inputPassword" placeholder="Password" type="password" name="password" />
-
+                        <form:input path="dob"  id="dob" class="form-control"  placeholder="Date of birth" type="text"  />
+                        <form:errors class="err_msg" path="dob" ></form:errors>
                     </div>
                 </div>
+
+                <div class="form-group">
+                    <label for="password" class="col-lg-2 control-label">Password</label>
+                    <div class="col-lg-10">
+                        <form:input path="password"  id="password" class="form-control"  placeholder="Password" type="text"  />
+                        <form:errors class="err_msg" path="password" ></form:errors>
+                    </div>
+                </div>
+
+
 
                 <div class="form-group">
                     <div class="col-lg-10 col-lg-offset-2">
-                        <button type="submit" class="btn btn-primary" name="submit" >Submit</button>
+                        <button type="submit" class="btn btn-primary" name="submit" value="submit">Submit</button>
 
                     </div>
                 </div>
             </fieldset>
         </form:form>
-        <div class="reg_button">
-        <form action="registration" method="GET">
-            <button align="right" type="submit" class="btn btn-primary" name="submit" >Sign Up</button>
-        </form>
-        </div>
-        <div class="err_msg">
-            <p>${message}</p>
-        </div>
 
-     </div>
+    </div>
 </div>
 
 <%-- bootwatch_theme_end--%>

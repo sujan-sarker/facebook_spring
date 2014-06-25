@@ -50,9 +50,18 @@ public class UserDaoImpl implements UserDao {
         return query.getResultList();
 
     }
+    @Override
     public void addStatus(Status status1) {
         entityManager.persist(status1);
         entityManager.flush();
+    }
+
+    @Override
+    public void addUser(User user) {
+
+        entityManager.persist(user);
+        entityManager.flush();
+
     }
 
 }
